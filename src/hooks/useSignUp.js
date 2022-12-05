@@ -11,16 +11,13 @@ const useSignUp = () => {
     setIsLoading(true);
     setError(null);
 
-    const response = await fetch(
-      "https://hotel-api-rx2n.onrender.com/api/auth/signup",
-      {
-        method: "POST",
-        body: JSON.stringify({ username, password }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    const response = await fetch("/api/auth/signup", {
+      method: "POST",
+      body: JSON.stringify({ username, password }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     const json = await response.json();
 
     if (!response.ok) {
