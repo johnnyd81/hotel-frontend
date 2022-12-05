@@ -11,13 +11,16 @@ const useLogin = () => {
     setError(null);
     setIsLoading(true);
 
-    const response = await fetch("/api/auth/login", {
-      method: "POST",
-      body: JSON.stringify({ username, password }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      "https://hotel-api-rx2n.onrender.com/api/auth/login",
+      {
+        method: "POST",
+        body: JSON.stringify({ username, password }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
     const json = await response.json();
 
     if (!response.ok) {

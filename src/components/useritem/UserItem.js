@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useUsercontext } from "../../hooks/useUsercontext";
-import EditModal from "../editmodal/EditModal";//the edit modal is used to edit a specific user
+import EditModal from "../editmodal/EditModal"; //the edit modal is used to edit a specific user
 import "./useritem.css";
 
 const UserItem = ({ user }) => {
@@ -10,10 +10,13 @@ const UserItem = ({ user }) => {
   const { dispatch } = useUsercontext();
 
   //the deleteUser function removes a user from the database
-  const deleteUser = async (id) => { 
-    const response = await fetch("/api/users/" + id, {
-      method: "DELETE",
-    });
+  const deleteUser = async (id) => {
+    const response = await fetch(
+      "https://hotel-api-rx2n.onrender.com/api/users/" + id,
+      {
+        method: "DELETE",
+      }
+    );
     const json = await response.json();
 
     if (!response.ok) {

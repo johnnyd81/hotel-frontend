@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useUsercontext } from "../../hooks/useUsercontext";//imports my user context
+import { useUsercontext } from "../../hooks/useUsercontext"; //imports my user context
 import "./editmodal.css";
 //a fontawesome icon plays the role of a closing icon to my modal
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,13 +14,16 @@ const EditModal = ({ user, setOpen }) => {
   const editUser = async (id) => {
     const newName = { username };
 
-    const response = await fetch("/api/users/" + id, {
-      method: "PUT", //the put method edits the details of a specific user
-      body: JSON.stringify(newName),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      "https://hotel-api-rx2n.onrender.com/api/users/" + id,
+      {
+        method: "PUT", //the put method edits the details of a specific user
+        body: JSON.stringify(newName),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
     const json = await response.json();
 
     if (!response.ok) {

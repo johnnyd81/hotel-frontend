@@ -10,4 +10,8 @@ This application allows a user to book a hotel for a certain amount of time. The
 2. In the command terminal cd into the hotel-app-capstone directory.
 3. cd into the frontend and enter "npm install"
 4. Next cd back into the root directory and cd into the backend and enter "npm install".
-5. Next enter "npm start" to start the frontend and the backend simultaneously
+5. Next enter "npm start" from the backend to start the frontend and the backend simultaneously
+
+## Security
+
+The app is secured with the helmet package.

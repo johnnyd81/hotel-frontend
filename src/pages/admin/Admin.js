@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import UserItem from "../../components/useritem/UserItem";
-import { Tabs } from "antd";//the antd package provides the functionality for the tabs
+import { Tabs } from "antd"; //the antd package provides the functionality for the tabs
 import "./admin.css";
 import { useUsercontext } from "../../hooks/useUsercontext";
 import { useBookingContext } from "../../hooks/useBookingContext";
@@ -28,7 +28,9 @@ export const Users = () => {
 
   useEffect(() => {
     const getUsers = async () => {
-      const response = await fetch("/api/users");
+      const response = await fetch(
+        "https://hotel-api-rx2n.onrender.com/api/users"
+      );
       const json = await response.json();
 
       if (!response.ok) {
@@ -57,7 +59,9 @@ export const Bookings = () => {
 
   useEffect(() => {
     const getBookings = async () => {
-      const response = await fetch("/api/bookings");
+      const response = await fetch(
+        "https://hotel-api-rx2n.onrender.com/api/bookings"
+      );
       const json = await response.json();
 
       if (!response.ok) {

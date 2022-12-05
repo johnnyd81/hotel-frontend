@@ -8,9 +8,12 @@ const BookingItem = ({ booking }) => {
 
   //the cancelBooking function removes a booking from the database
   const cancelBooking = async (id) => {
-    const response = await fetch("/api/bookings/" + id, {
-      method: "DELETE",
-    });
+    const response = await fetch(
+      "https://hotel-api-rx2n.onrender.com/api/bookings/" + id,
+      {
+        method: "DELETE",
+      }
+    );
     const json = await response.json();
 
     if (!response.ok) {

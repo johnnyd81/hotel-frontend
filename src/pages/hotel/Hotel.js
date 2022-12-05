@@ -1,14 +1,14 @@
 import "./hotel.css";
 import useFetchData from "../../hooks/useFetchData";
-import { useLocation } from "react-router-dom";//allows me to use properties available in the current page
+import { useLocation } from "react-router-dom"; //allows me to use properties available in the current page
 import Header from "../../components/header/Header";
 import { useSearchContext } from "../../hooks/useSearchContext";
 import { useNavigate } from "react-router-dom";
 
 const Hotel = () => {
   const location = useLocation();
-  const id = location.pathname.split("/")[2];//gets the id of a hotel
-  const { data, isLoading } = useFetchData(`/api/hotels/find/${id}`);//fetches data using the useFetchData hook
+  const id = location.pathname.split("/")[2]; //gets the id of a hotel
+  const { data, isLoading } = useFetchData(`/api/hotels/find/${id}`); //fetches data using the useFetchData hook
   const { date, choices } = useSearchContext();
 
   const milliseconds_per_day = 60 * 60 * 24 * 1000; //amount of milliseconds for a single day
@@ -22,7 +22,7 @@ const Hotel = () => {
   const days = dayAmount(date[0].endDate, date[0].startDate); //calculates the amount of days between the dates specified
 
   const navigate = useNavigate();
- 
+
   //addBooking creates a new booking in the database
   const addBooking = async () => {
     const bookingDetails = {
@@ -33,13 +33,16 @@ const Hotel = () => {
       totalAmount: days * data.cheapestPrice * choices.room,
     };
 
-    const response = await fetch("/api/bookings", {
-      method: "POST",
-      body: JSON.stringify(bookingDetails),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      "https://hotel-api-rx2n.onrender.com/api/bookings",
+      {
+        method: "POST",
+        body: JSON.stringify(bookingDetails),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
     const json = await response.json();
 
     if (!response.ok) {
