@@ -18,7 +18,7 @@ The app is secured with the helmet security package.
 
 ## Deployment
 
-The removal of heroku's free tier means that deploying fullstack applications has to be done seperately on different platforms. I will update my readme file as soon as my app is deployed
+The frontend of my app is deployed on vercel and the backend is deployed on render.com. View the live demo [here](https://hotel-frontend-alpha.vercel.app/)
 
 ## System Architecture
 
