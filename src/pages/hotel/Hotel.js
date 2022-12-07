@@ -35,13 +35,16 @@ const Hotel = () => {
       totalAmount: days * data.cheapestPrice * choices.room,
     };
 
-    const response = await fetch("/api/bookings", {
-      method: "POST",
-      body: JSON.stringify(bookingDetails),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      "https://hotel-server-pibn.onrender.com/api/bookings",
+      {
+        method: "POST",
+        body: JSON.stringify(bookingDetails),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
     const json = await response.json();
 
     if (!response.ok) {
