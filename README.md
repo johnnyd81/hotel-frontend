@@ -22,7 +22,7 @@ The frontend of my app is deployed on vercel and the backend is deployed on rend
 
 ## System Architecture
 
-The application will be built using the MERN stack of technologies. This stack will be used to create the frontend user interface(React.js), the backend(Node.js, Express.js) and the database(MongoDb). The primary reason for using the MERN stack for this application is that JavaScript can be used for all the technologies involved in the application, thereby simplifying the development process.The frontend of the application(created using Create-React-App) will be styled using a combination of React-bootstrap and CSS. The backend will be created using Node.js/Express.js and mongoose will be used to interact with the database. The application will be hosted on either Heroku or Netlify on completion of development. I prefer to keep the frontend and the backend together during deployment therefore a hosting platform like Heroku or Netlify would be the obvious choice.
+The application will be built using the MERN stack of technologies. This stack will be used to create the frontend user interface(React.js), the backend(Node.js, Express.js) and the database(MongoDb). The primary reason for using the MERN stack for this application is that JavaScript can be used for all the technologies involved in the application, thereby simplifying the development process.The frontend of the application(created using Create-React-App) will be styled using a combination of React-bootstrap and CSS. The backend will be created using Node.js/Express.js and mongoose will be used to interact with the database. The application will be hosted on vercel and render.com on completion of development.
 
 ## System Requirements
 
