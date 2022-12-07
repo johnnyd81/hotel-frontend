@@ -28,7 +28,9 @@ export const Users = () => {
 
   useEffect(() => {
     const getUsers = async () => {
-      const response = await fetch("/api/users");
+      const response = await fetch(
+        "https://hotel-server-pibn.onrender.com/api/users"
+      );
       const json = await response.json();
 
       if (!response.ok) {
@@ -57,7 +59,9 @@ export const Bookings = () => {
 
   useEffect(() => {
     const getBookings = async () => {
-      const response = await fetch("/api/bookings");
+      const response = await fetch(
+        "https://hotel-server-pibn.onrender.com/api/bookings"
+      );
       const json = await response.json();
 
       if (!response.ok) {
