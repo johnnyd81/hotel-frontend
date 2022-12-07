@@ -8,7 +8,9 @@ import { useNavigate } from "react-router-dom";
 const Hotel = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[2]; //gets the id of a hotel
-  const { data, isLoading } = useFetchData(`/api/hotels/find/${id}`); //fetches data using the useFetchData hook
+  const { data, isLoading } = useFetchData(
+    `https://hotel-server-pibn.onrender.com/api/hotels/find/${id}`
+  ); //fetches data using the useFetchData hook
   const { date, choices } = useSearchContext();
 
   const milliseconds_per_day = 60 * 60 * 24 * 1000; //amount of milliseconds for a single day

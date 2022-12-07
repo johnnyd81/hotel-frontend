@@ -11,7 +11,7 @@ const useSignUp = () => {
     setIsLoading(true);
     setError(null);
 
-    const response = await fetch("/api/auth/signup", {
+    const response = await fetch("https://hotel-server-pibn.onrender.com/api/auth/signup", {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: {
