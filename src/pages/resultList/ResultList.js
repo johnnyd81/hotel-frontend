@@ -15,7 +15,7 @@ const ResultList = () => {
 
   //fetches data from the database that matches the queries i.e.destination, min, max
   const { data, isLoading } = useFetchData(
-    `https://hotel-server-pibn.onrender.com/api/hotels?city=${destination}&min=${
+    `https://hotel-backend-gjiv.onrender.com/api/hotels?city=${destination}&min=${
       min || 0
     }&max=${max || 2000}`
   );

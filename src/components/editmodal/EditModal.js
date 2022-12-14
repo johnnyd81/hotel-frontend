@@ -15,7 +15,7 @@ const EditModal = ({ user, setOpen }) => {
     const newName = { username };
 
     const response = await fetch(
-      "https://hotel-server-pibn.onrender.com/api/users/" + id,
+      "https://hotel-backend-gjiv.onrender.com/api/users/" + id,
       {
         method: "PUT", //the put method edits the details of a specific user
         body: JSON.stringify(newName),
@@ -36,15 +36,15 @@ const EditModal = ({ user, setOpen }) => {
     }
   };
   return (
-    <div className="adminModal">
-      <div className="adminModalContainer">
+    <div className="editModal">
+      <div className="editModalContainer">
         <div className="modalClose">
           <FontAwesomeIcon
             icon={faCircleXmark}
             onClick={() => setOpen(false)}
           />
         </div>
-        <div className="adminForm">
+        <div className="editForm">
           <label className="formLabel">Name: </label>
           <input
             type="text"

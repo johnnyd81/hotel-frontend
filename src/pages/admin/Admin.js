@@ -5,6 +5,7 @@ import "./admin.css";
 import { useUsercontext } from "../../hooks/useUsercontext";
 import { useBookingContext } from "../../hooks/useBookingContext";
 import BookingItem from "../../components/bookingitem/BookingItem";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 const Admin = () => {
   //the admin page has tabs that contain the users and the bookings made by the users
@@ -29,7 +30,7 @@ export const Users = () => {
   useEffect(() => {
     const getUsers = async () => {
       const response = await fetch(
-        "https://hotel-server-pibn.onrender.com/api/users"
+        "https://hotel-backend-gjiv.onrender.com/api/users"
       );
       const json = await response.json();
 
@@ -56,11 +57,17 @@ export const Users = () => {
 //the bookings available in the database are fetched using useEffect and are displayed using the BookingItem component
 export const Bookings = () => {
   const { bookings, dispatch } = useBookingContext();
+  const { adminUser } = useAuthContext();
 
   useEffect(() => {
     const getBookings = async () => {
       const response = await fetch(
-        "https://hotel-server-pibn.onrender.com/api/bookings"
+        "https://hotel-backend-gjiv.onrender.com/api/bookings",
+        {
+          headers: {
+            Authorization: `Bearer ${adminUser.token}`,
+          },
+        }
       );
       const json = await response.json();
 
@@ -73,7 +80,7 @@ export const Bookings = () => {
       }
     };
     getBookings();
-  }, [dispatch]);
+  }, [dispatch, adminUser]);
 
   return (
     <div className="bookingContainer">

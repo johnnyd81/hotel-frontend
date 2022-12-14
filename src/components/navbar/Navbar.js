@@ -1,10 +1,11 @@
 import "./navbar.css";
-import { Link } from "react-router-dom";//allows me to link to different pages in my app
-import { useAuthContext } from "../../hooks/useAuthContext";//imports authentication contextual state
+import { Link } from "react-router-dom"; //allows me to link to different pages in my app
+import { useAuthContext } from "../../hooks/useAuthContext"; //imports authentication contextual state
 import useLogout from "../../hooks/useLogout"; //the useLogout hook allows me to log out a user
 
 const Navbar = () => {
-  const { user } = useAuthContext();//makes the user context available to the module
+  const { user } = useAuthContext(); //makes the user context available to the module
+
   const { logout } = useLogout();
 
   const handleClick = () => {
@@ -25,7 +26,7 @@ const Navbar = () => {
               <Link to="/signup">
                 <button className="navButton">Register</button>
               </Link>
-              <Link to="/admin">
+              <Link to="/adminmodal">
                 <button className="navButton">Admin</button>
               </Link>
             </>
@@ -35,9 +36,6 @@ const Navbar = () => {
               <button className="navButton" onClick={handleClick}>
                 Log out
               </button>
-              <Link to="/">
-                <button className="navButton">Home</button>
-              </Link>
             </>
           )}
         </div>

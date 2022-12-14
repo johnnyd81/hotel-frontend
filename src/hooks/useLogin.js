@@ -11,7 +11,7 @@ const useLogin = () => {
     setError(null);
     setIsLoading(true);
 
-    const response = await fetch("https://hotel-server-pibn.onrender.com/api/auth/login", {
+    const response = await fetch("https://hotel-backend-gjiv.onrender.com/api/auth/login", {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: {

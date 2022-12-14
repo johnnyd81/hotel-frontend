@@ -4,6 +4,14 @@
 
 This application allows a user to book a hotel for a certain amount of time. The app is protected therefore only users who are authenticated can use it. After authentication the user will be taken to the homepage where three cities are displayed. Each city has a certain amount of hotels to choose from and a user has to select the city, amount of people, amount of rooms to be booked and the checking in and checking out dates. The amount to be paid will vary according to the amount of rooms booked as well as the different prices of each hotel. The admin dashboard can be used to delete or edit users in the database as well as to cancel any previous bookings made by the users.
 
+## User instructions
+
+To use the app a user first has to register. Once registered a user has the choice of choosing a hotel in three South African cities namely Johannesburg, Durban and Cape Town. Each city has hotels that are very highly rated and offer excellent customer service. A price range can also be entered to find a hotel that suits a user i.e. a price range between R500 and R1000 per night. A user is then navigated to the booking page where a Book Now button confirms the booking. The final page is a Confirmation page that shows a user the details of their booking i.e. username, stay duration etc. It is at this stage that a user can cancel their booking and remove it from the database. If not then a homepage button navigates a user back to the homepage. The log out button on the navigation bar can be clicked to return a user to the login page.
+
+## Admin user instructions
+
+To log in as an admin user the admin button needs to be clicked on the navigation bar. Once clicked a modal appears that requires a username and a password to be entered. If either fields receive incorrect data then an error appears. Once logged in the admin user has the option of editing usernames, deleting users from the database and cancelling bookings that have been made by the users. To log out of the admin dashboard the log out button can be clicked to return a user to the login page.
+
 ## Installing the app
 
 1. Clone/Download the project to your computer.

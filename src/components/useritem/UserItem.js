@@ -12,7 +12,7 @@ const UserItem = ({ user }) => {
   //the deleteUser function removes a user from the database
   const deleteUser = async (id) => {
     const response = await fetch(
-      "https://hotel-server-pibn.onrender.com/api/users/" + id,
+      "https://hotel-backend-gjiv.onrender.com/api/users/" + id,
       {
         method: "DELETE",
       }

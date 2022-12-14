@@ -4,14 +4,16 @@ import { useLocation } from "react-router-dom"; //allows me to use properties av
 import Header from "../../components/header/Header";
 import { useSearchContext } from "../../hooks/useSearchContext";
 import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 const Hotel = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[2]; //gets the id of a hotel
   const { data, isLoading } = useFetchData(
-    `https://hotel-server-pibn.onrender.com/api/hotels/find/${id}`
+    `https://hotel-backend-gjiv.onrender.com/api/hotels/find/${id}`
   ); //fetches data using the useFetchData hook
   const { date, choices } = useSearchContext();
+  const { user } = useAuthContext();
 
   const milliseconds_per_day = 60 * 60 * 24 * 1000; //amount of milliseconds for a single day
 
@@ -36,12 +38,13 @@ const Hotel = () => {
     };
 
     const response = await fetch(
-      "https://hotel-server-pibn.onrender.com/api/bookings",
+      "https://hotel-backend-gjiv.onrender.com/api/bookings",
       {
         method: "POST",
         body: JSON.stringify(bookingDetails),
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${user.token}`,
         },
       }
     );
@@ -54,7 +57,7 @@ const Hotel = () => {
     if (response.ok) {
       console.log("Booking successful", json);
       alert("Booking successful");
-      navigate("/");
+      navigate("/bookingconfirm", { state: { json } });
     }
   };
 
