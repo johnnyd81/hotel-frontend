@@ -14,16 +14,13 @@ const EditModal = ({ user, setOpen }) => {
   const editUser = async (id) => {
     const newName = { username };
 
-    const response = await fetch(
-      "https://hotel-backend-gjiv.onrender.com/api/users/" + id,
-      {
-        method: "PUT", //the put method edits the details of a specific user
-        body: JSON.stringify(newName),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    const response = await fetch("/api/users/" + id, {
+      method: "PUT", //the put method edits the details of a specific user
+      body: JSON.stringify(newName),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     const json = await response.json();
 
     if (!response.ok) {

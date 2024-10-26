@@ -9,9 +9,7 @@ import { useAuthContext } from "../../hooks/useAuthContext";
 const Hotel = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[2]; //gets the id of a hotel
-  const { data, isLoading } = useFetchData(
-    `https://hotel-backend-gjiv.onrender.com/api/hotels/find/${id}`
-  ); //fetches data using the useFetchData hook
+  const { data, isLoading } = useFetchData(`/api/hotels/find/${id}`); //fetches data using the useFetchData hook
   const { date, choices } = useSearchContext();
   const { user } = useAuthContext();
 
@@ -37,17 +35,14 @@ const Hotel = () => {
       totalAmount: days * data.cheapestPrice * choices.room,
     };
 
-    const response = await fetch(
-      "https://hotel-backend-gjiv.onrender.com/api/bookings",
-      {
-        method: "POST",
-        body: JSON.stringify(bookingDetails),
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${user.token}`,
-        },
-      }
-    );
+    const response = await fetch("/api/bookings", {
+      method: "POST",
+      body: JSON.stringify(bookingDetails),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${user.token}`,
+      },
+    });
     const json = await response.json();
 
     if (!response.ok) {

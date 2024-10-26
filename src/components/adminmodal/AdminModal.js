@@ -15,7 +15,7 @@ const AdminModal = () => {
     setIsLoading(true);
     setError(null);
 
-    const response = await fetch("https://hotel-backend-gjiv.onrender.com/api/auth/adminlogin", {
+    const response = await fetch("/api/auth/adminlogin", {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: {

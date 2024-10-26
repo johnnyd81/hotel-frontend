@@ -29,9 +29,7 @@ export const Users = () => {
 
   useEffect(() => {
     const getUsers = async () => {
-      const response = await fetch(
-        "https://hotel-backend-gjiv.onrender.com/api/users"
-      );
+      const response = await fetch("/api/users");
       const json = await response.json();
 
       if (!response.ok) {
@@ -61,14 +59,11 @@ export const Bookings = () => {
 
   useEffect(() => {
     const getBookings = async () => {
-      const response = await fetch(
-        "https://hotel-backend-gjiv.onrender.com/api/bookings",
-        {
-          headers: {
-            Authorization: `Bearer ${adminUser.token}`,
-          },
-        }
-      );
+      const response = await fetch("/api/bookings", {
+        headers: {
+          Authorization: `Bearer ${adminUser.token}`,
+        },
+      });
       const json = await response.json();
 
       if (!response.ok) {

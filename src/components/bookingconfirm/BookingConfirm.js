@@ -13,15 +13,12 @@ const BookingConfirm = () => {
   const navigate = useNavigate();
 
   const removeBooking = async (id) => {
-    const response = await fetch(
-      "https://hotel-backend-gjiv.onrender.com/api/bookings/" + id,
-      {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      }
-    );
+    const response = await fetch("/api/bookings/" + id, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
+    });
     const json = await response.json();
 
     if (!response.ok) {
